@@ -19,10 +19,12 @@ app.use(cookieParser());
 
 // Use Online Xampp Mysql
 const db = mysql.createConnection({
-  host: "127.0.0.1",
+  host: '127.0.0.1', // or '::1' for IPv6
+  port: '3306',
   user: "root",
   password: "", 
-  database: "signup"
+  database: "signup",
+  
 });
 const verifyUser = (req,res,next)=>{
    const token =req.cookies.token;
