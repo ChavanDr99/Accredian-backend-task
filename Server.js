@@ -19,19 +19,10 @@ app.use(cookieParser());
 
 // Use Online Xampp Mysql
 const db = mysql.createConnection({
-  host: '::1', // or '::1' for IPv6
-  port: '3306',
+  host: "127.0.0.1",
   user: "root",
   password: "", 
   database: "signup"
-});
-
-db.connect(err => {
-  if (err) {
-    console.error('Error connecting to database:', err);
-    return;
-  }
-  console.log("Connected to the database");
 });
 const verifyUser = (req,res,next)=>{
    const token =req.cookies.token;
@@ -51,7 +42,13 @@ const verifyUser = (req,res,next)=>{
    }
 }
 
-
+db.connect(err => {
+  if (err) {
+    console.error('Error connecting to database:', err);
+    return;
+  }
+  console.log("Connected to the database");
+});
 
 app.get('/',verifyUser,(req,res)=>{
 return res.json({Status:"Success",name:req.name})
