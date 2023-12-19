@@ -76,7 +76,7 @@ app.post('/register', async (req, res) => {
      }
  
      try {
-       const hashedPassword = await bcrypt.hash(password, saltRounds);
+       const hashedPassword = await bcrypt.hash(password, 10);
  
        const insertUserQuery = 'INSERT INTO signup (Name, Email, Password) VALUES (?, ?, ?)';
        db.query(insertUserQuery, [name, email, hashedPassword], (err, result) => {
