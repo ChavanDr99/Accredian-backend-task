@@ -19,7 +19,8 @@ app.use(cookieParser());
 
 // Use Online Xampp Mysql
 const db = mysql.createConnection({
-  host: "localhost",
+  host: '127.0.0.1', // or '::1' for IPv6
+  port: '3306',
   user: "root",
   password: "", 
   database: "signup"
