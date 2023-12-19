@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 import jwt from 'jsonwebtoken'
+// import jwt from 'jsonwebtoken'
 
 const saltRounds = 10;
 
